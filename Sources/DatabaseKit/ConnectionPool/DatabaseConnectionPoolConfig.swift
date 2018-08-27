@@ -2,7 +2,8 @@
 public struct DatabaseConnectionPoolConfig: ServiceType {
     /// Creates a new `DatabaseConnectionPoolConfig` with default settings.
     public static func `default`() -> DatabaseConnectionPoolConfig {
-        return .init(maxConnections: System.coreCount)
+        // @TODO: Make this dynamic. 10 is chosen so that we have have up to 10 parallel requests.
+        return .init(maxConnections: 10)
     }
 
     /// See `ServiceType`.
